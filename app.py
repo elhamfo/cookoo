@@ -1,5 +1,6 @@
 # app.py
 import os
+from dotenv import load_dotenv
 from typing import Dict, Any, List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -12,7 +13,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from fastapi.middleware.cors import CORSMiddleware
+from langchain_groq import ChatGroq
 
+load_dotenv()
 app = FastAPI(title="Recipe Advisor RAG API")
 
 app.add_middleware(
@@ -53,16 +56,26 @@ except Exception as e:
 # ────────────────────────────────────────────────
 """
 llm = ChatOpenAI(
-    model="gpt-3.5-turbo",              # chat model – more capable & up-to-date
+    model="gpt-3.5-turbo",             
     temperature=0.4,
     max_tokens=800,
     api_key=os.getenv("OPENAI_API_KEY")
 )
-"""
+
 llm = ChatOllama(
     model="llama3.2:3b",
     temperature=0.4,
     num_ctx=4096, #8192
+)
+"""
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    print("Warning: GROQ_API_KEY not found in environment variables!")
+
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",   # or "llama-3.1-8b-instant" for faster/cheaper
+    groq_api_key=GROQ_API_KEY,
+    temperature=0.4,
 )
 # Modern compact prompt (you can make it much more detailed)
 prompt = ChatPromptTemplate.from_messages([
