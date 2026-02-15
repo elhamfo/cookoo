@@ -37,6 +37,8 @@ lucide-react (icons)
 **Data**
 Public recipe CSV dataset (https://github.com/josephrmartinez/recipe-dataset/blob/main/13k-recipes.csv)
 
+**LLM**: OpenRouter free tier (`openrouter/free`) -- auto-routes to available open model
+
 ## 📋 Quick Start (Local Development)
 
 #### Prerequisites
