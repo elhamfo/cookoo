@@ -1,19 +1,19 @@
 # app.py
 import os
 from dotenv import load_dotenv
-from typing import Dict, Any, List
+from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import ChatOllama
+#from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from fastapi.middleware.cors import CORSMiddleware
-from langchain_groq import ChatGroq
+#from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 
 load_dotenv()
@@ -43,6 +43,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 try:
+    # FAISS
     vectorstore = FAISS.load_local(
         "faiss_index",
         embeddings,

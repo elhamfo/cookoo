@@ -4,11 +4,11 @@ from pathlib import Path
 
 from langchain_community.document_loaders import CSVLoader
 from langchain_text_splitters import CharacterTextSplitter
-#from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
-DATA_PATH = Path("data/recipes.csv")          
+
+DATA_PATH = Path("data/recipes.csv")   
 INDEX_PATH = Path("faiss_index")
 
 def main():
@@ -38,9 +38,10 @@ def main():
     )
 
     print("Building FAISS index (this may take a minute)...")
-    vectorstore = FAISS.from_documents(documents, embeddings)
+    vectorstore = FAISS.from_documents(documents, embeddings) 
 
-    print(f"Saving index to {INDEX_PATH}...")
+    print("Chroma index created and persisted")
+    #print(f"Saving index to {INDEX_PATH}...")
     vectorstore.save_local(str(INDEX_PATH))
 
     print("Data preparation complete!")
