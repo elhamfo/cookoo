@@ -40,8 +40,7 @@ def main():
     print("Building FAISS index (this may take a minute)...")
     vectorstore = FAISS.from_documents(documents, embeddings) 
 
-    print("Chroma index created and persisted")
-    #print(f"Saving index to {INDEX_PATH}...")
+    print(f"Saving index to {INDEX_PATH}...")
     vectorstore.save_local(str(INDEX_PATH))
 
     print("Data preparation complete!")
