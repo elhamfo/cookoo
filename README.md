@@ -6,7 +6,7 @@ Built with **FastAPI** (backend) + **React + Tailwind CSS** (frontend) and power
 
 https://github.com/elhamfo/cookoo
 
-#### ✨ Features
+#### Features
 
 Semantic search over a recipe dataset using **sentence-transformers** embeddings + **FAISS**
 Retrieval-Augmented Generation with **Llama 3.2** (via Ollama) model
@@ -16,10 +16,10 @@ Fully local inference option (no API keys needed when using Ollama)
 Clean, responsive UI with Tailwind CSS v4
 Swagger/OpenAPI docs for the backend API
 
-#### 🏗️ Architecture
+#### Architecture
 User → React Frontend (Vite) ↓ FastAPI Backend (localhost:8000) ↓ Query → HuggingFace Embeddings → FAISS Vector Store ↓ Top-k relevant recipes retrieved ↓ Augmented prompt → Llama 3.2 / OpenAI → Generated personalized recipe ↓ Response + sources → displayed in chat
 
-#### 🚀 Tech Stack
+#### Tech Stack
 
 **Backend**
 Python 3.11+
@@ -39,7 +39,7 @@ Public recipe CSV dataset (https://github.com/josephrmartinez/recipe-dataset/blo
 
 **LLM**: OpenRouter free tier (`openrouter/free`) -- auto-routes to available open model
 
-## 📋 Quick Start (Local Development)
+## Quick Start (Local Development)
 
 #### Prerequisites
 
@@ -50,7 +50,7 @@ bash
 
 #### 1. Clone repo
 git clone https://github.com/elhamfo/cookoo.git
-cd recipe-advisor
+cd cookoo
 
 #### 2. Backend setup
 python -m venv venv
