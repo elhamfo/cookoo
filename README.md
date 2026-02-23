@@ -52,13 +52,6 @@ https://github.com/elhamfo/cookoo
 - Local: Ollama (Llama 3.2) – dev only  
 - Cloud fallback: OpenRouter free tier (auto-routes to available open models)
 
-### Live Demo
-
-(Note: Live demo currently uses cloud fallback for reliability. Local Ollama mode is available only in development.)
-
-- **Interactive Chatbot**: https://cookoo-chatbot.netlify.app (or your deployed URL)  
-- **Backend API Docs (Swagger)**: https://your-railway-app.up.railway.app/docs (if deployed)
-
 ### Quick Start (Local Development)
 
 #### Prerequisites
