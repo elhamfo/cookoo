@@ -60,25 +60,23 @@ https://github.com/elhamfo/cookoo
 - Node.js 18+  
 - Ollama installed & running (for local LLM: download from ollama.com, run `ollama pull llama3.2`)
 
-#### 1. Clone repo
-
-bash
+#### Clone repo
 git clone https://github.com/elhamfo/cookoo.git
 cd cookoo
 
-#### 2. Backend setup
+#### Backend setup
 python -m venv venv
 source venv/bin/activate    # Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 
-#### 3. Prepare recipe data & vector index (run once)
+#### Prepare recipe data & vector index (run once)
 python prepare_data.py
 
-#### 4. Start backend
+#### Start backend
 python app.py
 #### → http://localhost:8000/docs (Swagger UI)
 
-#### 5. In another terminal → Frontend
+#### In another terminal → Frontend
 cd frontend
 npm install
 npm run dev
