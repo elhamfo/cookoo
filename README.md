@@ -1,54 +1,75 @@
-## Recipe Advisor – Personalized RAG-powered Recipe Chatbot
+## cookoo – Personalized RAG-Powered Recipe Advisor Chatbot
 
-A modern, full-stack **personalized recipe advisor** chatbot that helps users find or adapt recipes based on ingredients they have, dietary preferences, time constraints, and number of servings.
+A modern, full-stack **personalized recipe advisor** chatbot that helps users discover, adapt, or create recipes based on ingredients they have, dietary preferences, time constraints, servings, and cooking style.
 
-Built with **FastAPI** (backend) + **React + Tailwind CSS** (frontend) and powered by a **Retrieval-Augmented Generation (RAG)** pipeline using local embeddings and LLM inference.
+Powered by **Retrieval-Augmented Generation (RAG)** with local embeddings and LLM inference — built as a portfolio project to showcase applied AI engineering, RAG pipelines, and clean full-stack development.
 
 https://github.com/elhamfo/cookoo
 
-#### Features
+### Features
 
-Semantic search over a recipe dataset using **sentence-transformers** embeddings + **FAISS**
-Retrieval-Augmented Generation with **Llama 3.2** (via Ollama) model
-Chat interface with message bubbles, loading state, and auto-scroll
-Dietary filters & servings input (vegan, gluten-free, quick meals, etc.)
-Fully local inference option (no API keys needed when using Ollama)
-Clean, responsive UI with Tailwind CSS v4
-Swagger/OpenAPI docs for the backend API
+- **Semantic Recipe Search**  
+  Uses sentence-transformers embeddings + FAISS for intelligent, context-aware retrieval over thousands of recipes
 
-#### Architecture
-User → React Frontend (Vite) ↓ FastAPI Backend (localhost:8000) ↓ Query → HuggingFace Embeddings → FAISS Vector Store ↓ Top-k relevant recipes retrieved ↓ Augmented prompt → Llama 3.2 / OpenAI → Generated personalized recipe ↓ Response + sources → displayed in chat
+- **Retrieval-Augmented Generation (RAG)**  
+  Combines retrieved recipes with user preferences to generate personalized, practical recipe suggestions
 
-#### Tech Stack
+- **Conversational Chat Interface**  
+  Message bubbles, loading states, auto-scroll, and natural back-and-forth interaction
 
-**Backend**
-Python 3.11+
-FastAPI
-LangChain + langchain-ollama / langchain-openai
-sentence-transformers (embeddings)
-FAISS (vector store)
-Ollama (local LLM – Llama 3.2 3B / 1B)
+- **Dietary & Constraint Filters**  
+  Vegan, gluten-free, low-carb, quick meals, servings count, ingredient exclusions, etc.
 
-**Frontend**
-React 18 (Vite)
-Tailwind CSS v4
-lucide-react (icons)
+- **Fully Local Inference Option**  
+  No API keys required when using Ollama (Llama 3.2) — privacy-focused and offline-capable (dev only)
 
-**Data**
-Public recipe CSV dataset (https://github.com/josephrmartinez/recipe-dataset/blob/main/13k-recipes.csv)
+- **Clean, Responsive UI**  
+  Modern design with Tailwind CSS v4, lucide-react icons, and smooth interactions
 
-**LLM**: OpenRouter free tier (`openrouter/free`) -- auto-routes to available open model
+- **API Documentation**  
+  Interactive Swagger/OpenAPI docs for the backend endpoints
 
-## Quick Start (Local Development)
+### Tech Stack
+
+**Backend**  
+- Python 3.11+  
+- FastAPI (API framework)  
+- LangChain + langchain-ollama / langchain-openai  
+- sentence-transformers (embeddings)  
+- FAISS (vector store)  
+- Ollama (local LLM – Llama 3.2 3B / 1B)
+
+**Frontend**  
+- React 18+ (Vite)  
+- Tailwind CSS v4  
+- lucide-react (icons)  
+- Axios (API communication)
+
+**Data**  
+- Public recipe dataset (~13k recipes): https://github.com/josephrmartinez/recipe-dataset
+
+**LLM Options**  
+- Local: Ollama (Llama 3.2) – dev only  
+- Cloud fallback: OpenRouter free tier (auto-routes to available open models)
+
+### Live Demo
+
+(Note: Live demo currently uses cloud fallback for reliability. Local Ollama mode is available only in development.)
+
+- **Interactive Chatbot**: https://cookoo-chatbot.netlify.app (or your deployed URL)  
+- **Backend API Docs (Swagger)**: https://your-railway-app.up.railway.app/docs (if deployed)
+
+### Quick Start (Local Development)
 
 #### Prerequisites
 
-Python 3.11+ 
-Node.js 18+
-Ollama installed & running (for local LLM)
-bash
+- Python 3.11+  
+- Node.js 18+  
+- Ollama installed & running (for local LLM: download from ollama.com, run `ollama pull llama3.2`)
 
 #### 1. Clone repo
+
+bash
 git clone https://github.com/elhamfo/cookoo.git
 cd cookoo
 
@@ -69,3 +90,41 @@ cd frontend
 npm install
 npm run dev
 #### → http://localhost:5173
+
+**Test the app locally:**  
+- Open http://localhost:5173 in your browser  
+- Ask for recipes based on ingredients, preferences, or constraints  
+- Try dietary filters and local Ollama mode (if Ollama is running)  
+
+### Why This Project?
+
+As an AI engineer, I created this project to demonstrate:
+
+- **RAG Pipeline**  
+End-to-end retrieval + generation using local embeddings and FAISS
+
+- **Local LLM Integration**  
+Ollama for privacy-focused, offline-capable inference
+
+- **Conversational AI UX**  
+Clean chat interface with filters, state management, and responsive design
+
+- **Full-Stack Production Skills**  
+FastAPI API design, React/Vite frontend
+
+- **Security & Best Practices**  
+Input validation, no hardcoded secrets, proper CORS, free-tier cloud deployment
+
+### Improvements in Progress
+
+- Multi-turn memory & conversation history  
+- Recipe image generation/visualization  
+- User profiles & saved favorites  
+-  Advanced personalization & ranking
+
+### Contact
+
+**Elham Fo**  
+📧 elham.fo@gmail.com  
+
+Open to collaborations, feedback, and discussions on applied AI engineering, RAG systems, conversational AI, and full-stack ML applications!
